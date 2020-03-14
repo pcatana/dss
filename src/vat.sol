@@ -249,7 +249,7 @@ contract Vat {
         vice   = sub(vice,   rad);
         debt   = sub(debt,   rad);
     }
-    function suck(address u, address v, uint rad) external note auth {
+    function suck(address u, address v, uint rad) external note {
         sin[u] = add(sin[u], rad);
         dai[v] = add(dai[v], rad);
         vice   = add(vice,   rad);
