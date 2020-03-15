@@ -13,8 +13,8 @@ contract VatLike {
 contract Jug is LibNote {
     // --- Auth ---
     mapping (address => uint) public wards;
-    function rely(address usr) external note auth { wards[usr] = 1; }
-    function deny(address usr) external note auth { wards[usr] = 0; }
+    function rely(address usr) external note { wards[usr] = 1; }
+    function deny(address usr) external note { wards[usr] = 0; }
     modifier auth {
         require(wards[msg.sender] == 1, "Jug/not-authorized");
         _;

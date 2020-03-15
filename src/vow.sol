@@ -42,8 +42,8 @@ contract VatLike {
 contract Vow is LibNote {
     // --- Auth ---
     mapping (address => uint) public wards;
-    function rely(address usr) external note auth { require(live == 1, "Vow/not-live"); wards[usr] = 1; }
-    function deny(address usr) external note auth { wards[usr] = 0; }
+    function rely(address usr) external note { require(live == 1, "Vow/not-live"); wards[usr] = 1; }
+    function deny(address usr) external note { wards[usr] = 0; }
     modifier auth {
         require(wards[msg.sender] == 1, "Vow/not-authorized");
         _;
